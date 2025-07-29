@@ -29,7 +29,7 @@ func ReadArgs() (string, string, string, bool, bool) {
 			if strings.Count(firstArg, "=") != 1 {
 				log.Fatalln("Error: this is not the correct way to write a folder.")
 			}
-			fileName = strings.TrimLeft(firstArg, "--output=")
+			fileName = args[0][len("--output="):]
 			if strings.Contains(fileName, "banners/standard.txt") || strings.Contains(fileName, "banners/shadow.txt") || strings.Contains(fileName, "banners/thinkertoy.txt") {
 				log.Fatalln("Error: you cannot write to this file.")
 			}
@@ -49,7 +49,7 @@ func ReadArgs() (string, string, string, bool, bool) {
 			if strings.Count(args[0], "=") != 1 {
 				log.Fatalln("Error: this is not the correct way to write a folder.")
 			}
-			fileName = strings.TrimLeft(args[0], "--output=")
+			fileName = args[0][len("--output="):]
 			if strings.Contains(fileName, "banners/standard.txt") || strings.Contains(fileName, "banners/shadow.txt") || strings.Contains(fileName, "banners/thinkertoy.txt") {
 				log.Fatalln("Error: you cannot write to this file.")
 			}
